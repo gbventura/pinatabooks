@@ -1,0 +1,120 @@
+translate_id,description,en,es
+nav-home,Navigation menu Home option,Home,Inicio
+nav-browse,Navigation menu Browse option,Browse,Búsqueda
+nav-subjects,Navigation menu Subjects option,Subjects,Categorías
+nav-locations,Navigation menu Locations option,Locations,Ubicaciones
+nav-map,Navigation menu Map option,Map,Mapa
+nav-timeline,Navigation menu Timeline option,Timeline,Cronología
+nav-data,Navigation menu Data option,Data,Datos
+nav-about,Navigation menu About option,About,Sobre
+home-featured-image,Home featured image button,Featured Image,Foto principal
+home-description,Home description card title,Description,Descripción
+home-learn,Home learn more button,Learn More,Aprende más
+home-carousel-items,Home carousel card title,Sample Items,Artículos de muestra
+home-view-item,Home carousel view item button,View Item,Ver ítem
+home-time,Home time span card title,Time Span,Espacio de tiempo
+home-timeline,Home time span button,View Timeline,Ver cronología
+home-subjects,Home top subjects card title,Top Subjects,Categorías principales
+home-locations,Home top locations card title,Locations,Ubicaciones
+home-objects,Home objects card title,Objects,Objetos
+home-objects-images,Home objects card images button,Images,Imágenes
+home-objects-audio,Home objects card audio button,Audio,Audio
+home-objects-video,Home objects card videos button,Videos,Vídeos
+home-objects-pdf,Home objects card PDFs button,PDFs,PDFs
+home-table,Home objects card button,View table,Ver tabla
+home-data,Home data download card title,Collection as Data,Recopilación como datos
+home-data-download,Home data download card subtitle,click to download,haga clic para descargar
+home-built,Home footer built with,built with,construido con
+home-update,Home footer last updated,Last updated,Última actualización
+data-download-metadata-csv,Metadata CSV download button,Metadata CSV,Metadatos CSV
+data-download-metadata-json,Metadata JSON download button,Metadata JSON,Metadatos JSON
+data-download-subjects-csv,Subjects CSV download button,Subjects CSV,Categorías CSV
+data-download-subjects-json,Subjects JSON download button,Subjects JSON,Categorías JSON
+data-download-geodata-json,Geodata JSON download button,Geodata JSON,Geodatos JSON
+data-download-locations-csv,Locations CSV download button,Locations CSV,Ubicaciones CSV
+data-download-locations-json,Locations JSON download button,Locations JSON,Ubicaciones JSON
+data-download-timeline-json,Timeline JSON download button,Timeline JSON,Cronología JSON
+data-download-facets-json,Facets JSON download button,Facets JSON,Facetas JSON
+data-download-timelinejs-json,TimelineJS JSON download button,TimelineJS JSON,TimelineJS JSON
+data-download-source-code,Source code download button,Source Code,Código fuente
+item-breadcrumb-browse,Navigation menu Browse option,Browse,Búsqueda
+item-view-full,Instructions underneath item image,Click to view full screen,Click para ver pantalla completa
+item-download-image,Item page image download button,Download Image,Descargar imagen
+item-pdf-render,Instructions for PDF not rendering on item page,The PDF is not rendering in your browser. Please use the button below to download the PDF.,El PDF no se muestra en su navegador. Utilice el botón de abajo para descargar el PDF.
+item-download-pdf,Item page pdf download button,Download PDF,Descargar PDF
+item-audio-support,Notification that browser does not support audio on item page,Your browser does not support the audio element.,Su navegador no es compatible con el elemento de audio.
+item-download-audio,Item page audio download button,Download Audio File,Descargar archivo de audio
+item-view-youtube,Item page youtube view button,View on Youtube,Ver en Youtube
+item-view-vimeo,Item page vimeo view button,View on Vimeo,Ver en Vimeo
+item-video-support,Notification that browser does not support video on item page,Your browser does not support the video element.,Su navegador no soporta el elemento de vídeo.
+item-download-video,Item page video download button,Download Video File,Descargar archivo de vídeo
+item-download-object,Item page object download button,Download objeto,Descargar objeto
+item-view-timeline,View on timeline button on item page,View on Timeline,Ver en la línea de tiempo
+item-view-map,View on map button on itme page,View on Map,Ver en el mapa
+item-previous,Item page previous button,Previous,Previo
+item-next,Item page next button,Next,Próximo
+back-to-browse,Item page back to browse button,Back to browse,Volver a navegar
+back-to-collection-browse,Item page back to collection browse button,Back to Collection Browse,Volver a la colección Examinar
+to,to,to,a
+of,of,of,de
+view-record,Browse card View Full Record button,View Full Record,Ver registro completo
+search,Browse search button,Search,Buscar
+reset,Browse reset button,Reset,Reajustar
+sort,Browse sort by button,Sort by,Ordenar
+random,Browse sort by random button,Random,Aleatorio
+title,Browse sort by title button,Title,Título
+loading,Browse loading,Loading,Cargando
+items,Browse item count,items,ítems
+year,Timeline page year dropdown button,Year,Año
+data-title,Data page title,Collection Metadata,Metadatos de la colección
+data-text,Data page text,"The table below provides sorting and basic search of the collection contents. Use the 'CSV' or 'Excel' button below to download the filtered metadata you see on the page in your preferred format. Alternatively, click the 'Download' button at the top right to view the full collection metadata in various export formats.","La siguiente tabla proporciona clasificación y búsqueda básica de los contenidos de la colección. Use el botón 'CSV' o 'Excel' a continuación para descargar los metadatos filtrados que ve en la página en su formato preferido. Alternativamente, haga clic en el botón 'Descargar' en la parte superior derecha para ver los metadatos completos de la colección en varios formatos de exportación."
+data-download,Data page download data button,Download Data,Descargar datos
+collection-data,Download data modal title,Collection Data,Datos de la colección
+collection-data-text,Download data modal text,Download this collection's data in a variety of reusable formats.,Descargue los datos de esta colección en una variedad de formatos reutilizables.
+complete-metadata,Download data metadata title,Complete Metadata,Metadatos completos
+complete-metadata-text,Download data metadata text,"All metadata fields for all collection items, available as a CSV spreadsheet (usable in Excel, Google Sheets, and similar programs) or JSON file (often used with web applications).","Todos los campos de metadatos para todos los elementos de la colección,disponibles en una hoja de cálculo CSV (utilizable en Excel, Hojas de cálculo de Google y programas similares) o archivo JSON (usado a menudo con aplicaciones web)."
+metadata-facets,Download data facets title,Metadata Facets,Facetas de metadatos
+metadata-facets-text,Download data facets text,"List of unique values and their count for specific metadata fields, useful for understanding content of the fields.","Lista de valores únicos y su recuento para campos de metadatos específicos, útil para comprender el contenido de los campos."
+subject-metadata,Download data subjects title,Subject Metadata,Metadatos de la categoría
+subject-metadata-text,Download data subjects text,"Unique values and counts of subject metadata, useful for further analyzing the content of this collection.","Valores únicos y recuentos de metadatos de las categorías, útiles para analizar más a fondo el contenido de esta colección."
+data-locations,Download data locations title,Locations,Ubicaciones
+data-locations-text,Download data locations text,"Unique values and counts of location metadata, useful for further visualization and analysis of this collection's place names.","Valores únicos y recuentos de metadatos de ubicación, útiles para una mayor visualización y análisis de los lugares mencionados en esta colección."
+data-geojson,Download data geojson title,GeoJSON,GeoJSON
+data-geojson-text,Download data geojson text,"Metadata for all collection items that have geographic coordinates in <a href='https://en.wikipedia.org/wiki/GeoJSON' target='_blank' rel='noopener'>GeoJSON</a> format, useful for further exploration and analysis of this collection through a geographical lense.","Metadatos para todos los elementos de la colección que tienen coordenadas geográficas en <a href='https://en.wikipedia.org/wiki/GeoJSON' target='_blank' rel='noopener'>GeoJSON</a> formato, útil para una mayor exploración y análisis de esta colección a través de un lente geográfica."
+data-timeline,Download data timeline title,Timeline,Cronología
+data-timeline-text,Download data timeline text,A time-focused JSON data export designed for use with <a href='https://timeline.knightlab.com/' target='_blank' rel='noopener'>TimelineJS</a>.,Una exportación de datos JSON centrada en el tiempo diseñada para su uso con <a href='https://timeline.knightlab.com/' target='_blank' rel='noopener'>TimelineJS</a>.
+data-source,Download data source code title,Website Source Code,Código fuente del sitio web
+data-source-text,Download data source code text,GitHub repository containing source code for this project built with <a href='https://github.com/CollectionBuilder/collectionbuilder-gh' target='_blank' rel='noopener'>CollectionBuilder-GH</a>.,Repositorio de GitHub que contiene el código fuente de este proyecto creado con <a href='https://github.com/CollectionBuilder/collectionbuilder-gh' target='_blank' rel='noopener'>CollectionBuilder-GH</a>.
+search-results,Indicates number of results found on the search page,Result(s) found, Resultado(s) encontrados
+search-options-button,Search options button on Search page,Search Options,Opciones de Búsqueda
+search-fuzzy,Fuzzy search disclaimer at bottom of Search page,Fuzzy search powered by,Búsqueda borrosa impulsado por
+search-load,Fuzzy search disclaimer at bottom of Search page,May take a second to load large collections!,¡Puede tomar un segundo cargar grandes colecciones!
+search-google-cse,Google CSE disclaimer on Search page (only appears if google-cse-id is populated in _config.yml),"Alternatively, try","Alternativamente, intente"
+search-site-search,Google CSE disclaimer on Search page (only appears if google-cse-id is populated in _config.yml),site search,búsqueda de sitio
+search-lunr-options,Lunr search options modal title on Search page,Lunr Search Options,Opciones de búsqueda de Lunr
+search-options-modal-part-1,Search options description on Search page modal,"<p>These advanced options can be added to your query in the search box to refine your results:</p> <ul> <li>Search a specific field: use the field name, colon, then your query, e.g. <code>title:foo</code>, <code>date:1911</code>, <code>subject:tree</code>. In this collection you can use ","<p>Estas opciones avanzadas se pueden agregar a su consulta en el cuadro de búsqueda para refinar sus resultados:</p> <ul> <li>Buscar un campo específico: use el nombre del campo, dos puntos y luego su consulta, e.g. <code>title:foo</code>, <code>date:1911</code>, <code>subject:tree</code>. En esta colección puedes usar "
+search-options-modal-part-2,Search options description on Search page modal,".</li> <li>Wildcards: add <code>*</code> to match any character(s), e.g. <code>foo*</code>, <code>*oo</code>. This is helpful for using a root to find words with all related endings.</li> <li>Fuzzy match: add <code>~</code> plus a number at the end of your query to specify a higher level of fuzziness in search, e.g. <code>foo~1</code>. This can help with misspellings.</li> <li>Boost term: add <code>^</code> plus a number to boost the relevance of a term in your query, e.g. <code>foo^10</code>. This can help reduce clutter of unrelated results if one of your terms is most important.</li>",".</li> <li>Comodines: agregue <code>*</code> para que coincida con cualquier carácter(s), e.g. <code>foo*</code>, <code>*oo</code>. Esto es útil para usar una raíz para encontrar palabras con todas las terminaciones relacionadas.</li> <li>Coincidencia aproximada: agregue <code>~</code> más un número al final de su consulta para especificar un nivel más alto de confusión en la búsqueda, e.g. <code>foo~1</code>. Esto puede ayudar con las faltas de ortografía.</li> <li>Impulsar término: agregue <code>^</code> más un número para aumentar la relevancia de un término en su consulta, e.g. <code>foo^10</code>. Esto puede ayudar a reducir el desorden de resultados no relacionados si uno de sus términos es el más importante.</li>"
+contents,About page table of contents card title,Contents,Contenido
+tech,About page Tech heading,Tech,Tecnología
+tech-heading,Technical card title,Technical Credits - CollectionBuilder,Créditos técnicos - CollectionBuilder
+tech-info,Technical card more information section title,More Information Available,Más información disponible
+tech-specs,Technical card specs button,Technical Specifications,Especificaciones técnicas
+tech-imls,Technical card funding button,IMLS Support,Patrocinado por IMLS
+tech-p1,Technical card first paragraph,"This digital collection is built with <a href='https://collectionbuilder.github.io/' target='_blank' rel='noopener'>CollectionBuilder</a>, an open source tool for creating digital collection and exhibit websites that is developed by faculty librarians at the University of Idaho Library following the <a href='https://lib-static.github.io' target='_blank' rel='noopener'>Lib-STATIC</a> methodology.","Esta colección digital está construida con <a href='https://collectionbuilder.github.io/' target='_blank' rel='noopener'>CollectionBuilder</a>, una herramienta de código abierto para crear colecciones digitales y sitios web de exposiciones desarrollado por los bibliotecarios de la facultad de la Biblioteca de la Universidad de Idaho siguiendo el <a href='https://lib-static.github.io' target='_blank' rel='noopener'>Lib-STATIC</a> <a href='https://lib-static.github.io' target='_blank' rel='noopener'>Lib-STATIC</a>."
+tech-p2,Technical card second paragraph,This site is built using <a href='https://github.com/CollectionBuilder/collectionbuilder-gh' target='_blank' rel='noopener'>CollectionBuilder-gh</a> which utilizes the static website generator <a href='https://jekyllrb.com/' target='_blank' rel='noopener'>Jekyll</a> and <a href='https://pages.github.com/' target='_blank' rel='noopener'>GitHub Pages</a> to build and host digital collections and exhibits.,Este sitio está construido usando <a href='https://github.com/CollectionBuilder/collectionbuilder-gh' target='_blank' rel='noopener'>CollectionBuilder-gh</a> que utiliza el generador de sitios web estáticos <a href='https://jekyllrb.com/' target='_blank' rel='noopener'>Jekyll</a> y <a href='https://pages.github.com/' target='_blank' rel='noopener'>GitHub Pages</a> para construir y albergar colecciones y exhibiciones digitales.
+date-sort,Sort by locations on browse sort dropdown,Date,Fecha
+date-created-display-name,Date created field name on item page,Date Created,Fecha de Creacion
+metadata-title,title field in metadata,Title,Título
+metadata-creator,Creatorfield in metadata,Creator,Creador
+metadata-date,Date field in metadata,Date,Fecha
+metadata-description,Description field in metadata,Description,Descripción
+metadata-subject,Subjects field in metadata,Subjects,Sujetos
+metadata-location,Location field in metadata,Location,Ubicación
+metadata-latitude,Latitude field in metadata,Latitude,Latitud
+metadata-longitude,Longitude field in metadata,Longitude,Longitud
+metadata-source,Source field in metadata,Source,Origen
+metadata-identifier,Identifier field in metadata,Source Identifier,Identificador de origen
+metadata-type,Type field in metadata,Type,Tipo
+metadata-format,Format field in metadata,Format,Formato
+metadata-rights,Rights field in metadata,Rights,Derechos
+metadata-rightsstatement,Rights Statement field in metadata,Rights Statement,Declaración de derechos

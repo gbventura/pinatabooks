@@ -29,12 +29,36 @@ description: "The Piñata Books Collection features books published for children
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
 author: Gabriela Baeza Ventura and Ana P. Sánchez
 
+# Set up site language ids and display names. First language will be the site's default language
+site_languages:
+  - lang_id: en
+    lang_display: English
+  - lang_id: es
+    lang_display: Español
+    lang_site_title: CollectionBuilder-Multilingüe
+    lang_site_tagline: una plantilla para crear exhibiciones digitales simples en varios idiomas
+    lang_site_description: "CollectionBuilder-GH es una plantilla para crear pequeñas exhibiciones de colecciones digitales en páginas de GitHub diseñadas para enseñar destrezas de bibliotecología digital"
+
+# Set paths, language ids, and permalinks for pages
+defaults:
+  -
+    scope:
+      path: 'es'
+    values:
+      permalink: /es/:basename
+      lang: 'es'
+  -
+    scope:
+      path: 'pages'
+    values:
+      lang: 'en'
+
 ##########
 # COLLECTION SETTINGS
 #
 # Set the metadata for your collection (the name of the csv file in your _data directory that describes the objects in your collection) 
 # Use the filename of your CSV **without** the ".csv" extension! E.g. _data/demo-metadata.csv --> "demo-metadata"
-metadata: 10pinatabookcollectionmetadata
+metadata: multilingual-metadata
 
 
 ##########
