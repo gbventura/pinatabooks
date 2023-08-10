@@ -1,5 +1,7 @@
-field,display_name,btn,hidden,sort_name
-date,Date,,,Date
-creator,Creator,,,
-subject,,true
-location,,true
+field,translate_id_browse,lang,btn,hidden,translate_id_sort_name
+date,metadata-date,en;es,,,metadata-date
+creator,metadata-creator,en;es,,,
+subject-en,,en,true
+subject-es,,es,true
+location-en,,en,true
+location-es,,es,true

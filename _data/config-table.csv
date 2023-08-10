@@ -1,5 +1,8 @@
-field,display_name
-title,Title
-date,Date
-description,Description
-subject,Subjects
+field,translate_id_table,lang
+title,metadata-title,en
+title-es,metadata-title,es
+date,metadata-date,en;es
+description-en,metadata-description,en
+description-es,metadata-description,es
+subject-en,metadata-subject,en
+subject-es,metadata-subject,es

@@ -1,5 +1,7 @@
-field,display_name,search
-date,Date,true
-creator,Creator,true
-subject,Subjects,true
-location,Location,true
+field,translate_id_map,lang,search
+date,metadata-date,en;es,true
+creator,metadata-creator,en;es,true
+subject-en,metadata-subject,en,true
+subject-es,metadata-subject,es,true
+location-en,metadata-location,en,true
+location-es,metadata-location,es,true
