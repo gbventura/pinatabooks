@@ -1,0 +1,13 @@
+{% comment %}
+
+    Translate default site language
+
+    e.g. --> {% include translate.html id="data-download" default="Download Data" %}
+
+    Options:
+    - "id" = corresponding "translate_id" value from the config-translation.csv for the text to be translated. If no "translate_id" value exists for the text to be translated, you will need to add a new row to the csv.
+    - "default" = default text for element, in case the value for "id" doesn't exist as a translate_id.
+
+{%- endcomment -%}
+
+{{ site.data.config-translation | where: "translate_id", include.id | map: page.lang | first | default: include.default }}
