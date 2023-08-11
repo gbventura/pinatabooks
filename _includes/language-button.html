@@ -1,0 +1,7 @@
+<div class="p-4 border rounded language-buttons">
+    <div class="btn-group" role="group" aria-label="Button group to toggle site language">
+        {%- for l in site.site_languages -%}
+        <a id="{{ l.lang_id }}" class="btn border lang-button">{{ l.lang_display }}</a>
+        {%- endfor -%}
+    </div>
+</div>

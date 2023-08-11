@@ -3,6 +3,8 @@
 <!-- load other js -->
 <script src="{{ '/assets/lib/lazysizes.min.js' | relative_url }}" async></script>
 {% if layout.gallery == true or page.gallery == true %}<script src="{{ '/assets/lib/spotlight.bundle.js' | relative_url }}" defer></script>{% endif %}
+{%- assign languageNumber = site.site_languages | map: 'lang_id' | join: ';' | split: ';' | size -%}
+{% if languageNumber >= 2 %}{% include js/lang-js.html %}{% endif %}
 {% if page.custom-foot or layout.custom-foot %}
 {%- assign page_feet = page.custom-foot | split: ";" -%}
 {%- assign layout_feet = layout.custom-foot | split: ";" -%}
