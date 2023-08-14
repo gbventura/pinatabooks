@@ -43,10 +43,11 @@ data-download-timelinejs-json,TimelineJS JSON download button,TimelineJS JSON,Ti
 data-download-source-code,Source code download button,Source Code,Código fuente
 item-breadcrumb-browse,Navigation menu Browse option,Browse,Búsqueda
 item-view-full,Instructions underneath item image,Click to view full screen,Click para ver pantalla completa
+item-download,Download,Download,Descargar
 item-download-image,Item page image download button,Download Image,Descargar imagen
 item-pdf-render,Instructions for PDF not rendering on item page,The PDF is not rendering in your browser. Please use the button below to download the PDF.,El PDF no se muestra en su navegador. Utilice el botón de abajo para descargar el PDF.
 item-download-pdf,Item page pdf download button,Download PDF,Descargar PDF
-item-audio-support,Notification that browser does not support audio on item page,Your browser does not support the audio element.,Su navegador no es compatible con el elemento de audio.
+item-audio-support,Notification that browser does not support audio on item page,Your browser does not support the audio element. Please download the audio file.,Su navegador no es compatible con el elemento de audio. Por favor descargue el archivo de audio.
 item-download-audio,Item page audio download button,Download Audio File,Descargar archivo de audio
 item-view-youtube,Item page youtube view button,View on Youtube,Ver en Youtube
 item-view-vimeo,Item page vimeo view button,View on Vimeo,Ver en Vimeo

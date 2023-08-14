@@ -1,7 +1,7 @@
 {%- if site.data.theme.icons -%}{% assign icons = site.data.theme.icons %}{% else %}
 {% assign cb_icons = site.pages | where: "name","cb-icons.svg" | first %}
 {% assign icons = cb_icons.icons %}{%- endif -%}
-{%- assign fields = site.data.config-metadata -%}
+{%- assign fields = site.data.config-metadata | where_exp: 'field', 'field.lang contains page.lang' -%}
 {%- assign stubs = site.data.config-nav | map: 'stub' | join: ';' -%}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}
 <script>
@@ -52,14 +52,14 @@
         function addItem(item) {
             if (item.format.includes('image')) {
                 itemDisplay = '<a class="spotlight gallery-img" data-download="true" href="' + item.filename + '"><img class="img-fluid" src="' + item.filename + '" alt="' + item.title + '">';
-                itemDisplay += record.format.includes('multiple') ? '</a>' : '<div><small class="text-dark">Click to view full screen</small></div></a>';
-                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">Download ' + item.format.split("/").pop().toUpperCase() + '</a>';
+                itemDisplay += record.format.includes('multiple') ? '</a>' : '<div><small class="text-dark">{% include translate.html id="item-view-full" default="Click to view full screen" %}</small></div></a>';
+                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">{% include translate.html id="item-download" default="Download" %} ' + item.format.split("/").pop().toUpperCase() + '</a>';
             } else if (item.format.includes('pdf')) {
-                itemDisplay = '<div class="ratio ratio-4x3"><object title="PDF file of ' + item.title + '" data="' + item.filename + '" type="application/pdf" width="100%"><p>The PDF is not rendering in your browser. Please use the button below to download the PDF.</p></object></div>';
-                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">Download PDF</a>';
+                itemDisplay = '<div class="ratio ratio-4x3"><object title="PDF file of ' + item.title + '" data="' + item.filename + '" type="application/pdf" width="100%"><p>{% include translate.html id="item-pdf-render" default="The PDF is not rendering in your browser. Please use the button below to download the PDF." %}</p></object></div>';
+                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">{% include translate.html id="item-download-pdf" default="Download PDF" %}</a>';
             } else if (item.format.includes('audio')) {
-                itemDisplay = '<audio controls class="w-100"><source src="' + item.filename + '">Your browser does not support the audio element. Please <a href="' + item.filename + '">download the audio file</a>.</audio>';
-                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">Download ' + item.format.split("/").pop().toUpperCase() + '</a>';
+                itemDisplay = '<audio controls class="w-100"><source src="' + item.filename + '">{% include translate.html id="item-audio-support" default="Your browser does not support the audio element. Please download the audio file." %}</audio>';
+                itemDownload = '<a href="' + item.filename + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">{% include translate.html id="item-download" default="Download" %} ' + item.format.split("/").pop().toUpperCase() + '</a>';
             } else if (item.youtube) {
                 itemDisplay = '<div class="ratio ratio-16x9"><iframe title="video embed ' + item.title + '" src="https://www.youtube-nocookie.com/embed/' + item.youtube + '?rel=0&modestbranding=1" allowfullscreen></iframe></div>';
                 itemDownload = '<a href="https://youtu.be/' + item.youtube + '" target="_blank" rel="noopener" class="btn btn-outline-primary" title="Object download">View on YouTube</a>';
