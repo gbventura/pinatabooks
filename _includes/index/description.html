@@ -1,8 +1,8 @@
 <div class="card mb-3">
   <div class="card-body">
-    <h5 class="card-title">Description</h5>
-    <p class="card-text">{{ site.description }}</p>
+    <h5 class="card-title">{% include translate.html id="home-description" default="Description" %}</h5>
+    <p class="card-text">{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.description }}{% else %}{% assign lang = site.site_languages | where: "lang_id", page.lang | first %}{{ lang.lang_site_description }}{% endif %}</p>
     {%- assign about = site.data.config-nav | where: "stub","/about.html" | size -%}
-    {% if about > 0 %}<a class="btn btn-outline-primary" href="{{ '/about.html' | relative_url }}" >Learn More &raquo;</a>{% endif %}
+    {% if about > 0 %}<a class="btn btn-outline-primary" href="{{ '/about.html' | relative_url }}" >{% include translate.html id="home-learn" default="Learn More" %} &raquo;</a>{% endif %}
   </div>
 </div>

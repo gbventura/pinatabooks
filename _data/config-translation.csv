@@ -18,9 +18,13 @@ home-subjects,Home top subjects card title,Top Subjects,Categorías principales
 home-locations,Home top locations card title,Locations,Ubicaciones
 home-objects,Home objects card title,Objects,Objetos
 home-objects-images,Home objects card images button,Images,Imágenes
-home-objects-audio,Home objects card audio button,Audio,Audio
-home-objects-video,Home objects card videos button,Videos,Vídeos
+home-objects-audio,Home objects card audio button,Audio Files,Archivos de sonido
+home-objects-video,Home objects card videos button,Videos,Archivos de video
 home-objects-pdf,Home objects card PDFs button,PDFs,PDFs
+home-objects-record,Home objects card record button,Records,Registros
+home-objects-compound,Home objects card compound objects button,Compound objects,Objetos compuestos
+home-objects-multiple,Home objects card multiples button,Multiples,Múltiplos
+home-objects-file,Home objects card files button,Files,Archivos
 home-table,Home objects card button,View table,Ver tabla
 home-data,Home data download card title,Collection as Data,Recopilación como datos
 home-data-download,Home data download card subtitle,click to download,haga clic para descargar

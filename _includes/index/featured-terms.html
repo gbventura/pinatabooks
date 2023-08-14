@@ -25,8 +25,26 @@
 {% comment %} 
     Use termsField and termsMax to customize feature 
 {% endcomment %}
-{% assign termsField = include.field | default: "subject" %}
+{% assign allTermsField = include.field | default: "subject" | split: ";" %}
 {% assign termsMax = include.max | default: 5 %}
+
+{% comment %} 
+    Match fields with config-browse
+{% endcomment %} 
+{%- assign browseFields = "" | split: "" -%}
+{%- for a in allTermsField %}
+{%- for f in site.data.config-browse -%}
+{%- if f.field == a -%}
+{% assign browseFields = browseFields | push: f %}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+
+{% comment %} 
+    Grab the field that specifies current page language in config-browse
+{% endcomment %} 
+{% assign langField = browseFields | where_exp: 'b', 'b.lang contains page.lang' | map: 'field' | first %}
+{% capture termsField %}{{ langField }}{% endcapture %}
 
 {% comment %} 
     Liquid below cleans and counts unique terms 
@@ -49,10 +67,10 @@
 <div class="card mb-3">
     {% if include.header %}<h5 class="card-header">{{ include.header }}</h5>{% endif %}
     <div class="card-body">
-        {% if include.title %}<h5 class="card-title">{{ include.title }}</h5>{% endif %}
+        {% if include.title %}<h5 class="card-title">{{ site.data.config-translation | where: 'translate_id', include.title | map: page.lang | first }}</h5>{% endif %}
         <p class="card-text">
             {% for s in topTerms %}
-            <a class="btn btn-sm btn-{{ include.btn-color | default: 'primary' }} m-1" href="{{ s | strip | url_param_escape | prepend: '/browse.html#' | relative_url }}">{{ s | strip }}</a>{% endfor %}
+            <a class="btn btn-sm btn-{{ include.btn-color | default: 'primary' }} m-1" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ s | strip | url_param_escape | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ s | strip | url_param_escape | prepend: '/browse.html#' | relative_url }}{% endif %}">{{ s | strip }}</a>{% endfor %}
         </p>
     </div>
 </div>
