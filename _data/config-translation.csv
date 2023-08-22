@@ -54,8 +54,10 @@ item-view-vimeo,Item page vimeo view button,View on Vimeo,Ver en Vimeo
 item-video-support,Notification that browser does not support video on item page,Your browser does not support the video element.,Su navegador no soporta el elemento de vídeo.
 item-download-video,Item page video download button,Download Video File,Descargar archivo de vídeo
 item-download-object,Item page object download button,Download objeto,Descargar objeto
+item-object-link,Item page link to object button,Link to object,Enlace al objeto
 item-view-timeline,View on timeline button on item page,View on Timeline,Ver en la línea de tiempo
-item-view-map,View on map button on itme page,View on Map,Ver en el mapa
+item-view-map,View on map button on item page,View on Map,Ver en el mapa
+item-info,Item Info button on item page,Item Info,Información del artículo
 item-previous,Item page previous button,Previous,Previo
 item-next,Item page next button,Next,Próximo
 back-to-browse,Item page back to browse button,Back to browse,Volver a navegar
@@ -110,7 +112,7 @@ tech-p2,Technical card second paragraph,This site is built using <a href='https:
 date-sort,Sort by locations on browse sort dropdown,Date,Fecha
 date-created-display-name,Date created field name on item page,Date Created,Fecha de Creacion
 metadata-title,title field in metadata,Title,Título
-metadata-creator,Creatorfield in metadata,Creator,Creador
+metadata-creator,Creator field in metadata,Creator,Creador
 metadata-date,Date field in metadata,Date,Fecha
 metadata-description,Description field in metadata,Description,Descripción
 metadata-subject,Subjects field in metadata,Subjects,Sujetos
