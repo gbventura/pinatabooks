@@ -35,7 +35,7 @@
         </div>
         {% unless site.data.theme.featured-image contains '/' %}
         <div class="position-absolute bottom-0 end-0 px-2 bg-dark bg-opacity-75">
-            <a class="text-white fs-6" href="{% if featuredItem.parentid %}{{ site.data.theme.featured-image | prepend: '#' | prepend: featuredItem.parentid | prepend: '/item.html?id=' | relative_url }}{% else %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | relative_url }}{% endif %}" title="{{ featuredItem.title | escape }}">{% include translate.html id="home-featured-image" default="Featured Image" %}</a>
+            <a class="text-white fs-6" href="{% if featuredItem.parentid %}{{ site.data.theme.featured-image | prepend: '#' | prepend: featuredItem.parentid | prepend: '/item.html?id=' | relative_url }}{% else %}{% if page.lang != site.site_languages[0]['lang_id'] %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | relative_url }}{% endif %}{% endif %}" title="{{ featuredItem.title | escape }}">{% include translate.html id="home-featured-image" default="Featured Image" %}</a>
         </div>{% endunless %}
     </div>
 </div>
