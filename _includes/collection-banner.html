@@ -20,9 +20,17 @@
 </style>
 <div id="home-banner" class="container-fluid mb-0 p-0">
     {% if languageNumber >= 2 %}
-        <div class="d-flex justify-content-end">
-            {% include language-button.html %}
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary my-1 me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Language</button>
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="height: 120px; width: 300px;">
+            <div class="offcanvas-header">
+                <div id="offcanvasRightLabel" class="banner-buttons">
+                    {% include language-button.html %}
+                </div>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
         </div>
+    </div>
     {% endif %}
     <div id="home-title-box" class="position-relative" >
         <div class="p-2 text-center text-white bg-dark bg-opacity-75">
@@ -42,8 +50,14 @@
 {%- else -%}
 {% if languageNumber >= 2 %}
 <div class="d-flex justify-content-end">
-    <div class="banner-buttons">
-        {% include language-button.html %}
+    <button class="btn btn-primary my-1 me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Language</button>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="height: 120px; width: 300px;">
+        <div class="offcanvas-header">
+            <div id="offcanvasRightLabel" class="banner-buttons">
+                {% include language-button.html %}
+            </div>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
     </div>
 </div>
 {% endif %}
