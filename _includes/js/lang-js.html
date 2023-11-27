@@ -24,10 +24,10 @@ document.querySelectorAll(".lang-button").forEach( node => {
         let pageUrl = buttonLink.pathname.replace(baseUrl, "");
         buttonLink.pathname = baseUrl + '/' + id + pageUrl;
     };
-    if (id == pageLang){ 
+    /*if (id == pageLang){ 
         node.classList.add("text-white", "btn-active", "focus");
         node.setAttribute('aria-current', 'page');
-    }
+    }*/
 });
 
 </script>

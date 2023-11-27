@@ -13,6 +13,12 @@
 .btn.focus {
     box-shadow: 0 0 0 0.2rem rgba(86, 87, 85, 0.25);
 }
-/*.banner-buttons {
+.banner-buttons {
     position: absolute;
-}*/
+}
+.sticky-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}
