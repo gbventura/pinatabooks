@@ -1,4 +1,4 @@
-{% assign fcount = site.data.config-table | size %}
+{% assign fcount = site.data.config-table | where_exp: 'field', 'field.lang contains page.lang' | size %}
 {% comment %}load DataTables with jquery bundled{% endcomment %}
 <script type="text/javascript" language="javascript" src="{{ '/assets/lib/datatables/datatables.min.js' | relative_url }}"></script>
 <script>
@@ -6,7 +6,7 @@
 $(document).ready( function () {
     $('#item-table').DataTable( {
         // use DataTables ajax load to 
-        ajax: { url: '{{ "/assets/js/metadata.min.json" | relative_url }}', dataSrc: 'objects' },
+        ajax: { url: '{{ "/assets/js/metadata.min.json" | relative_url }}', dataSrc: 'objects-{{ page.lang }}' },
         // defer render to speed up large sets
         "deferRender": true,
         // enable pagination 
