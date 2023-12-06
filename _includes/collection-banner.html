@@ -50,7 +50,7 @@
 <div class="container">
     <div class="row align-items-center">
         <div id="title" class="{% if site.organization-logo-banner %}col-md-9{% else %}col-12{% endif %}">
-            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/{% unless page.lang == site.site_languages[0]['lang_id'] %}{{ page.lang }}{% endunless %}/" >{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.title }}{% else %}{{ altLang.lang_site_title }}{% endif %}</a></h1>	 
+            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/{% unless page.lang == site.site_languages[0]['lang_id'] %}{{ page.lang }}{% endunless %}" >{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.title }}{% else %}{{ altLang.lang_site_title }}{% endif %}</a></h1>	 
             {% if site.tagline %}<p>{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.tagline }}{% else %}{{ altLang.lang_site_tagline }}{% endif %}</p>{% endif %}
         </div>
         {% if site.organization-logo-banner %}
