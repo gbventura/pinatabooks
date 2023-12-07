@@ -3,7 +3,9 @@ nav-home,/
 nav-browse,/browse.html
 nav-subjects,/subjects.html
 nav-locations,/locations.html
-nav-map,/map.html
+nav-map,
+nav-map-books,/map.html,nav-map
+nav-map-creators,/creatormap.html,nav-map
 nav-timeline,/timeline.html
 nav-data,/data.html
 nav-about,/about.html

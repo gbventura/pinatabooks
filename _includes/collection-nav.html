@@ -22,7 +22,7 @@
                 </li>
                 {%- else -%}
                 <li class="nav-item dropdown">
-                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
+                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.translate_id_nav' %}
                     {%- assign childStubs = navChildren | map: 'stub' -%}
                     <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ site.data.config-translation | where: "translate_id", nav.translate_id_nav | map: page.lang | first }}</a>
                     <div class="dropdown-menu">
