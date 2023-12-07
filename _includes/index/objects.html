@@ -2,7 +2,7 @@
 {%- assign types = "image;audio;video;pdf;record;compound_object;multiple" | split: ";" -%}
 <div class="card mb-3" >
     <div class="card-body">
-        <h5 class="card-title">Objects</h5>
+        <h5 class="card-title">{% include translate.html id="home-objects" default="Objects" %}</h5>
         <p class="card-text">
             {% for t in types %}
             {%- assign count = formats | where_exp: 'item','item contains t' | size -%}
@@ -10,25 +10,25 @@
             {{ count }}
             {% case t %}
             {% when 'image' %} 
-            <a class="text-dark" href="{{ 'image' | prepend: '/browse.html#' | relative_url }}">Image{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-image"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'image' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'image' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-images" default="Images" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-image"/></svg></a><br>
             {% when 'audio' %}
-            <a class="text-dark" href="{{ 'audio' | prepend: '/browse.html#' | relative_url }}">Audio File{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-audio"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'audio' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'audio' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-audio" default="Audio Files" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-audio"/></svg></a><br>
             {% when 'video' %}
-            <a class="text-dark" href="{{ 'video' | prepend: '/browse.html#' | relative_url }}">Video{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-video"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'video' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'video' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-video" default="Video Files" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-video"/></svg></a><br>
             {% when 'pdf' %}
-            <a class="text-dark" href="{{ 'pdf' | prepend: '/browse.html#' | relative_url }}">PDF{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-pdf"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'pdf' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'pdf' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-pdf" default="PDFs" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-pdf"/></svg></a><br>
             {% when 'record' %}
-            <a class="text-dark" href="{{ 'record' | prepend: '/browse.html#' | relative_url }}">Record{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-record"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'record' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'pdf' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-record" default="Records" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-record"/></svg></a><br>
             {% when 'compound_object' %}
-            <a class="text-dark" href="{{ 'compound_object' | prepend: '/browse.html#' | relative_url }}">Compound Object{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-compound-object"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'compound_object' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'pdf' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-compound" default="Compound Objects" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-compound-object"/></svg></a><br>
             {% when 'multiple' %}
-            <a class="text-dark" href="{{ 'multiple' | prepend: '/browse.html#' | relative_url }}">Multiple{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-multiple"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'multiple' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'pdf' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-multiple" default="Multiples" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-multiple"/></svg></a><br>
             {% else %}
-            <a class="text-dark" href="{{ 'pdf' | prepend: '/browse.html#' | relative_url }}">File{% if count > 1 %}s{% endif %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-default"/></svg></a><br>
+            <a class="text-dark" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ 'pdf' | prepend: '/browse.html#' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ 'pdf' | prepend: '/browse.html#' | relative_url }}{% endif %}">{% include translate.html id="home-objects-file" default="Files" %} <svg class="bi icon-sprite text-body" fill="currentColor" aria-hidden="true"><use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#icon-default"/></svg></a><br>
             {% endcase %}
             {% endif %}
             {%- endfor -%}
-            <a class="btn btn-sm btn-outline-secondary mt-2" href="{{ '/data.html' | relative_url }}">View table</a>
+            <a class="btn btn-sm btn-outline-secondary mt-2" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ '/data.html' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ '/data.html' | relative_url }}{% endif %}">{% include translate.html id="home-table" default="View table" %}</a>
         </p>
     </div>
 </div>

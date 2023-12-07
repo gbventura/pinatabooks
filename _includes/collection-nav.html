@@ -12,20 +12,23 @@
         
         <div class="collapse navbar-collapse" id="page-nav">
             <ul class="navbar-nav me-auto">
-                {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nil' -%} 
+                {%- assign navItems = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nil' -%}
+                {% capture page-url %}{% if page.layout == 'home-infographic' %}{{ page.url | remove: 'index' }}{% else %}{{ page.url | append: '.html' }}{% endif %}{% endcapture %} 
                 {% for nav in navItems %}
                 {% if nav.stub %}
+                {% capture page-stub %}{{ page.lang | prepend: '/' | append: nav.stub }}{% endcapture %}
                 <li class="nav-item">
-                    <a class="nav-link{% if page.url == nav.stub %} active{% endif %}" href="{{ nav.stub | relative_url }}">{{ nav.display_name }}</a>
+                    <a class="nav-link{% if page.lang == site.site_languages[0]['lang_id'] and page.url == nav.stub %} active{% elsif page-url == page-stub %} active{% endif %}" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ nav.stub | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ nav.stub | relative_url }}{% endif %}">{{ site.data.config-translation | where: "translate_id", nav.translate_id_nav | map: page.lang | first }}</a>
                 </li>
                 {%- else -%}
                 <li class="nav-item dropdown">
-                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.display_name' %}
+                    {% assign navChildren = site.data.config-nav | where_exp: 'item', 'item.dropdown_parent == nav.translate_id_nav' %}
                     {%- assign childStubs = navChildren | map: 'stub' -%}
-                    <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ nav.display_name }}</a>
+                    <a class="nav-link  dropdown-toggle{% if childStubs contains page.url %} active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ site.data.config-translation | where: "translate_id", nav.translate_id_nav | map: page.lang | first }}</a>
                     <div class="dropdown-menu">
                         {% for c in navChildren %}
-                        <a class="dropdown-item {% if page.url == c.stub %}active{% endif %}" href="{{ c.stub | relative_url }}">{{ c.display_name }}</a>
+                        {% capture child-stub %}{{ page.lang | prepend: '/' | append: c.stub }}{% endcapture %}
+                        <a class="dropdown-item {% if page.lang == site.site_languages[0]['lang_id'] and page.url == c.stub %} active{% elsif page-url == child-stub %} active{% endif %}" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ nav.stub | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ c.stub | relative_url }}{% endif %}">{{ site.data.config-translation | where: "translate_id", c.translate_id_nav | map: page.lang | first }}</a>
                         {% endfor %}
                     </div>
                 </li>

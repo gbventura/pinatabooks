@@ -2,3 +2,23 @@
     Put your custom SCSS here! 
     This allows you to override any CollectionBuilder or Bootstrap CSS without modifying the base theme files directly.
 */
+
+// language button styling
+.language-buttons {
+    background: white;
+}
+.btn-active {
+    background:rgb(0, 0, 0);
+}
+.btn.focus {
+    box-shadow: 0 0 0 0.2rem rgba(86, 87, 85, 0.25);
+}
+.banner-buttons {
+    position: absolute;
+}
+.sticky-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+}

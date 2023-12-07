@@ -6,8 +6,8 @@
 {% else %}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' | where_exp: 'item','item.parentid == nil' -%}
 {% endif %}
-{%- assign items = items | where_exp: 'item', 'item.objectid != nil' | where_exp: 'item','item.latitude' -%}
-{%- assign fields = site.data.config-map -%}
+{%- assign items = items | where_exp: 'item', 'item.objectid != nil' | where_exp: 'item','item.latitude_first' -%}
+{%- assign fields = site.data.config-map | where_exp: 'field', 'field.lang contains page.lang' -%}
 <!-- load leaflet dependencies -->
 <script src="{{ '/assets/lib/leaflet/leaflet.js' | relative_url }}"></script>
 <script src="{{ '/assets/lib/leaflet/Leaflet.fullscreen.min.js' | relative_url }}"></script>
@@ -21,10 +21,29 @@
     /* add collection map data */
     var geodata = { "type": "FeatureCollection", "features": [ 
     {% for item in items %}
-    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude | strip }},{{ item.latitude | strip }}] }, "properties":
-    { "title": {{ item.title | jsonify }}, 
+    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_first | strip }},{{ item.latitude_first | strip }}] }, "properties":
+    { "title": {{ item.title | jsonify }}, "location": {{ item.location_first_en | jsonify }},
     {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
-    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}{% endfor %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    {% if item.latitude_second %}
+    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_second | strip }},{{ item.latitude_second | strip }}] }, "properties":
+    { "title": {{ item.title | jsonify }}, "location": {{ item.location_second_en | jsonify }},
+    {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    {% endif %}
+    {% if item.latitude_third %}
+    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_third | strip }},{{ item.latitude_third | strip }}] }, "properties":
+    { "title": {{ item.title | jsonify }}, "location": {{ item.location_third_en | jsonify }}, 
+    {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    {% endif %}
+    {% if item.latitude_fourth %}
+    { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_fourth | strip }},{{ item.latitude_fourth | strip }}] }, "properties":
+    { "title": {{ item.title | jsonify }}, "location": {{ item.location_fourth_en | jsonify }},
+    {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    {% endif %}
+    {% endfor %}
     ]};
 
     /* check for url parameters and set initial view options */ 
@@ -111,7 +130,7 @@
         /* bind feature for search */
         feature.layer = layer;{% endif %}
         /* calculate item link */
-        var itemHref = '{{ "/item.html?id=" | relative_url }}' + feature.properties.link;
+        var itemHref = '{% unless page.lang == site.site_languages[0]["lang_id"] %}{{ "/item.html" | prepend: page.lang | prepend: "/" | relative_url | append: "?id=" }}{% else %}{{ "/item.html" | relative_url | append: "?id=" }}{% endunless %}' + feature.properties.link;
         /* find object thumb based on format */
         var thumbSrc;
         if (feature.properties.youtube) {
@@ -134,15 +153,15 @@
         /* create popup content */
         var popupTemplate = '<h2 class="h4"><a class="text-dark" href="' + itemHref + '">' +
             feature.properties.title + '</a></h2><div class="text-center"><a href="' + itemHref + 
-            '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div><p>';
+            '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div><p><strong>Location:</strong> ' + feature.properties.location + '<br>';
         /* add metadata fields */
-        {% for f in fields %}{% if f.display_name %}
+        {% for f in fields %}{% if f.translate_id_map %}
         if (feature.properties[{{ f.field | jsonify }}]) {
-            popupTemplate += '<strong>{{ f.display_name }}:</strong> ' + feature.properties[{{ f.field | jsonify }}] + '<br>'; 
+            popupTemplate += '<strong>{{ site.data.config-translation | where: "translate_id", f.translate_id_map | map: page.lang | first }}:</strong> ' + feature.properties[{{ f.field | jsonify }}] + '<br>'; 
         }
         {% endif %}{% endfor %}
         /* add object link button to popup */
-        popupTemplate += '</p><div class="text-center"><a class="btn btn-light" href="' + itemHref + '" >View Item</a></div>';
+        popupTemplate += '</p><div class="text-center"><a class="btn btn-light" href="' + itemHref + '" >{% include translate.html id="home-view-item" default="View Item" %}</a></div>';
         /* add object popup to map layer */
         layer.bindPopup(popupTemplate);
     }

@@ -1,4 +1,22 @@
-{%- assign cloud-fields = include.fields | split: ";" -%}
+{%- assign all-cloud-fields = include.fields | split: ";" -%}
+{%- assign browse-fields = "" | split: "" -%}
+{%- assign cloud-fields = "" | split: "" -%}
+
+{% comment %} Match fields with config-browse {% endcomment %} 
+{%- for a in all-cloud-fields %}
+{%- for f in site.data.config-browse -%}
+{%- if f.field == a -%}
+{% assign browse-fields = browse-fields | push: f %}
+{%- endif -%}
+{%- endfor -%}
+{%- endfor -%}
+
+{% comment %} Only use fields that specify current page language in config-browse {% endcomment %} 
+{%- for b in browse-fields -%}
+{%- if b.lang contains page.lang -%}
+{% assign cloud-fields = cloud-fields | push: b.field %}
+{%- endif -%}
+{%- endfor -%}
 
 {% if site.data.theme.browse-child-objects == true %}
 {%- assign items = site.data[site.metadata] | where_exp: 'item','item.objectid' -%}

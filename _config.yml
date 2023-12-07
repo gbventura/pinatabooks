@@ -29,23 +29,46 @@ description: "The Piñata Books Collection features books published for children
 # creator of the digital collection, to appear in meta tags; we typically use our GitHub usernames but feel free to just use your name
 author: Gabriela Baeza Ventura and Ana P. Sánchez
 
+# Set up site language ids and display names. First language will be the site's default language
+site_languages:
+  - lang_id: en
+    lang_display: English
+  - lang_id: es
+    lang_display: Español
+    lang_site_title: Colección de libros Piñata en Arte Público Press
+    lang_site_tagline: una colección de imágenes bilingües de US Latinx
+    lang_site_description: "La Colección de Libros Piñata presenta libros publicados para niños en español, inglés y cuatro en náhuat. Piñata Books es un sello de Arte Público Press, la principal editorial de libros escritos por latinos en los Estados Unidos."
+
+# Set paths, language ids, and permalinks for pages
+defaults:
+  -
+    scope:
+      path: 'es'
+    values:
+      permalink: /es/:basename
+      lang: 'es'
+  -
+    scope:
+      path: 'pages'
+    values:
+      lang: 'en'
+
 ##########
 # COLLECTION SETTINGS
 #
 # Set the metadata for your collection (the name of the csv file in your _data directory that describes the objects in your collection) 
 # Use the filename of your CSV **without** the ".csv" extension! E.g. _data/demo-metadata.csv --> "demo-metadata"
-metadata: 10pinatabookcollectionmetadata
+metadata: books-metadata
 
 
 ##########
 # Site/Organization Branding 
 #   Uncomment these and enter information for your organization (replacing the CDIL links and name below) if you'd like to brand your site with a logo
 #
-# organization-name: "Center for Digital Inquiry and Learning (CDIL)"
-# organization-link: https://cdil.lib.uidaho.edu/
-# organization-logo-banner: https://cdil.lib.uidaho.edu/storying-extinction/assets/img/cdil.png
-# organization-logo-nav: https://cdil.lib.uidaho.edu/assets/img/logo.png
-
+organization-name: "Arte Público Press"
+organization-link: https://artepublicopress.com/
+organization-logo-banner: /assets/img/APP_Logo_2019.png
+organization-logo-nav: /assets/img/app_logo_white_sm.png
 
 
 ##########

@@ -1,0 +1,33 @@
+<!--<div class="p-4 border rounded language-buttons">
+    <div class="btn-group" role="group" aria-label="Button group to toggle site language">
+        {%- for l in site.site_languages -%}
+        <a id="{{ l.lang_id }}" class="btn border lang-button">
+            <svg 
+                class="bi icon-sprite text-body" 
+                fill="currentColor" 
+                aria-hidden="true">
+                <use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#globe"/>
+            </svg> 
+            {{ l.lang_display }}
+        </a>
+        {%- endfor -%}
+    </div>
+</div>-->
+
+<div class="dropdown p-2 sticky-button">
+    <button class="btn btn-light dropdown-toggle border border-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <svg 
+            class="bi icon-sprite text-body" 
+            fill="currentColor" 
+            aria-hidden="true">
+            <use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#globe"/>
+        </svg> 
+        {% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.site_languages[0]['lang_display'] }}{% else %}{{ altLang.lang_display }}{% endif %}
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {%- assign altlanguages = site.site_languages | where_exp: 'lang', 'lang.lang_id != page.lang' -%}
+        {% for l in altlanguages %}
+            <li><a class="dropdown-item lang-button" id="{{ l.lang_id }}">{{ l.lang_display }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,12 @@
+---
+# Default leaflet map page
+layout: default
+custom-foot: js/creatormap-js.html
+---
+
+<div class="container">
+    <h2 class="pt-3">{% include translate.html id="map-creators-title" default="Authors" %}</h2>
+    <p class="pb-2 px-3">{% include translate.html id="map-creators-description" default="The points on this map represent the locations where these books' authors live." %}</p>
+</div>
+
+<div id="creatormap"></div>

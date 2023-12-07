@@ -1,3 +1,5 @@
+{% assign languageNumber = site.site_languages | map: 'lang_id' | join: ';' | split: ';' | size %}
+{% assign altLang = site.site_languages | where: "lang_id", page.lang | first %}
 {% if page.layout == "home-infographic" and site.data.theme.featured-image %}
 <style>
 #home-banner {
@@ -17,27 +19,39 @@
 }
 </style>
 <div id="home-banner" class="container-fluid mb-0 p-0">
+    {% if languageNumber >= 2 %}
+    <div class="d-flex justify-content-end">
+        {% include language-button.html %}
+    </div>
+    {% endif %}
     <div id="home-title-box" class="position-relative" >
         <div class="p-2 text-center text-white bg-dark bg-opacity-75">
             {% if site.organization-logo-nav %}
             <a class="d-none d-md-block" href="{{ site.organization-link }}" target="_blank" rel="noopener">
                 <img id="home-banner-logo" src="{{ site.organization-logo-nav | relative_url }}" alt="{{ site.organization-name }} home" >
             </a>{% endif %}
-            <h1 class="display-4">{{ site.title }}</h1>
-            {% if site.tagline %}<p class="mb-0">{{ site.tagline }}</p>{% endif %}
+            <h1 class="display-4">{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.title }}{% else %}{{ altLang.lang_site_title }}{% endif %}</h1>
+            {% if site.tagline %}<p class="mb-0">{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.tagline }}{% else %}{{ altLang.lang_site_tagline }}{% endif %}</p>{% endif %}
         </div>
         {% unless site.data.theme.featured-image contains '/' %}
         <div class="position-absolute bottom-0 end-0 px-2 bg-dark bg-opacity-75">
-            <a class="text-white fs-6" href="{% if featuredItem.parentid %}{{ site.data.theme.featured-image | prepend: '#' | prepend: featuredItem.parentid | prepend: '/item.html?id=' | relative_url }}{% else %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | relative_url }}{% endif %}" title="{{ featuredItem.title | escape }}">Featured Image</a>
+            <a class="text-white fs-6" href="{% if featuredItem.parentid %}{{ site.data.theme.featured-image | prepend: '#' | prepend: featuredItem.parentid | prepend: '/item.html?id=' | relative_url }}{% else %}{% if page.lang != site.site_languages[0]['lang_id'] %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ site.data.theme.featured-image | prepend: '/item.html?id=' | relative_url }}{% endif %}{% endif %}" title="{{ featuredItem.title | escape }}">{% include translate.html id="home-featured-image" default="Featured Image" %}</a>
         </div>{% endunless %}
     </div>
 </div>
 {%- else -%}
+{% if languageNumber >= 2 %}
+<div class="d-flex justify-content-end">
+    <div class="banner-buttons">
+        {% include language-button.html %}
+    </div>
+</div>
+{% endif %}
 <div class="container">
     <div class="row align-items-center">
         <div id="title" class="{% if site.organization-logo-banner %}col-md-9{% else %}col-12{% endif %}">
-            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/" >{{ site.title }}</a></h1>	 
-            {% if site.tagline %}<p>{{ site.tagline }}</p>{% endif %}
+            <h1><a class="text-dark font-weight-normal" href="{{ site.baseurl }}/{% unless page.lang == site.site_languages[0]['lang_id'] %}{{ page.lang }}{% endunless %}" >{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.title }}{% else %}{{ altLang.lang_site_title }}{% endif %}</a></h1>	 
+            {% if site.tagline %}<p>{% if page.lang == site.site_languages[0]['lang_id'] %}{{ site.tagline }}{% else %}{{ altLang.lang_site_tagline }}{% endif %}</p>{% endif %}
         </div>
         {% if site.organization-logo-banner %}
         <div class="col-md-3 d-none d-lg-block text-end">
