@@ -153,7 +153,7 @@
         /* create popup content */
         var popupTemplate = '<h2 class="h4"><a class="text-dark" href="' + itemHref + '">' +
             feature.properties.title + '</a></h2><div class="text-center"><a href="' + itemHref + 
-            '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div><p><strong>Location:</strong> ' + feature.properties.location + '<br>';
+            '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div><p><strong>{% include translate.html id="metadata-location" default="Location" %}:</strong> ' + feature.properties.location + '<br>';
         /* add metadata fields */
         {% for f in fields %}{% if f.translate_id_map %}
         if (feature.properties[{{ f.field | jsonify }}]) {

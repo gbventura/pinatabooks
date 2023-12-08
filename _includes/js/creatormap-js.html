@@ -119,7 +119,7 @@
         /* bind feature for search */
         feature.layer = layer;{% endif %}
         /* calculate item link */
-        var itemHref = '{{ "/browse.html" | relative_url }}#' + encodeURIComponent(feature.properties.creator);
+        var itemHref = '{% if page.lang != site.site_languages[0]["lang_id"] %}{{ "/browse.html" | prepend: page.lang | prepend: "/" | relative_url }}{% else %}{{ "/browse.html" | relative_url }}{% endif %}#' + encodeURIComponent(feature.properties.creator);
         /* find object thumb based on format */
         var thumbSrc;
         if (feature.properties.youtube) {
@@ -141,14 +141,13 @@
         }    
         /* create popup content */
         var popupTemplate = '<h2 class="h4"><a class="text-dark" href="' + itemHref + '">' +
-            feature.properties.creator + '</a></h2><!--<div class="text-center"><a href="' + itemHref + 
-            '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div>--><p><strong>Location:</strong> ' + feature.properties.location + '<br><strong>Book(s):</strong> ' + feature.properties.title + '<br>';
+            feature.properties.creator + '</a></h2><div class="text-center"><a href="' + itemHref + '" ><img class="mapthumb img-thumb" src="' +  thumbSrc + '" alt="item thumbnail"></a></div><p><strong>{% include translate.html id="metadata-location" default="Location" %}:</strong> ' + feature.properties.location + '<br><strong>{% include translate.html id="map-books-title" default="Books" %}:</strong> ' + feature.properties.title + '<br>';
         /* add metadata fields */
-        {% for f in fields %}{% if f.translate_id_map %}
+        {% for f in fields %}{% unless f.field == 'creator' %}{% if f.translate_id_map %}
         if (feature.properties[{{ f.field | jsonify }}]) {
             popupTemplate += '<strong>{{ site.data.config-translation | where: "translate_id", f.translate_id_map | map: page.lang | first }}:</strong> ' + feature.properties[{{ f.field | jsonify }}] + '<br>'; 
         }
-        {% endif %}{% endfor %}
+        {% endif %}{% endunless %}{% endfor %}
         /* add object link button to popup */
         popupTemplate += '</p><div class="text-center"><a class="btn btn-light" href="' + itemHref + '" >{% include translate.html id="view-books" default="View Books" %}</a></div>';
         /* add object popup to map layer */

@@ -28,7 +28,7 @@
                     <div class="dropdown-menu">
                         {% for c in navChildren %}
                         {% capture child-stub %}{{ page.lang | prepend: '/' | append: c.stub }}{% endcapture %}
-                        <a class="dropdown-item {% if page.lang == site.site_languages[0]['lang_id'] and page.url == c.stub %} active{% elsif page-url == child-stub %} active{% endif %}" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ nav.stub | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ c.stub | relative_url }}{% endif %}">{{ site.data.config-translation | where: "translate_id", c.translate_id_nav | map: page.lang | first }}</a>
+                        <a class="dropdown-item {% if page.lang == site.site_languages[0]['lang_id'] and page.url == c.stub %} active{% elsif page-url == child-stub %} active{% endif %}" href="{% if page.lang != site.site_languages[0]['lang_id'] %}{{ c.stub | prepend: page.lang | prepend: '/' | relative_url }}{% else %}{{ c.stub | relative_url }}{% endif %}">{{ site.data.config-translation | where: "translate_id", c.translate_id_nav | map: page.lang | first }}</a>
                         {% endfor %}
                     </div>
                 </li>
