@@ -1,5 +1,6 @@
 field,translate_id_map,lang,search
 date,metadata-date,en;es,true
 creator,metadata-creator,en;es,true
+illustrator,metadata-illustrator,en;es,true
 subject-en,metadata-subject,en,true
 subject-es,metadata-subject,es,true

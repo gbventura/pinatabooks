@@ -6,6 +6,7 @@ nav-locations,/locations.html
 nav-map,
 nav-map-books,/map.html,nav-map
 nav-map-creators,/creatormap.html,nav-map
+nav-map-illustrators,/illustratormap.html,nav-map
 nav-timeline,/timeline.html
 nav-data,/data.html
 nav-about,/about.html

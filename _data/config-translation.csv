@@ -4,8 +4,9 @@ nav-browse,Navigation menu Browse option,Browse,Búsqueda
 nav-subjects,Navigation menu Subjects option,Subjects,Categorías
 nav-locations,Navigation menu Locations option,Locations,Ubicaciones
 nav-map,Navigation menu Map option,Maps,Mapas
-nav-map-books,Navigation menu creator map option,Book Map,Mapa de Libros
-nav-map-creators,Navigation menu creator map option,Author Map,Mapa del Autor
+nav-map-books,Navigation menu book map option,Book Map,Mapa de Libros
+nav-map-creators,Navigation menu creator map option,Author Map,Mapa del Autores
+nav-map-illustrators,Navigation menu illustrator map option,Illustrator Map,Mapa del Ilustradores
 nav-timeline,Navigation menu Timeline option,Timeline,Cronología
 nav-data,Navigation menu Data option,Data,Datos
 nav-about,Navigation menu About option,About,Sobre
@@ -114,7 +115,7 @@ tech-p2,Technical card second paragraph,This site is built using <a href='https:
 date-sort,Sort by locations on browse sort dropdown,Date,Fecha
 date-created-display-name,Date created field name on item page,Date Created,Fecha de Creacion
 metadata-title,title field in metadata,Title,Título
-metadata-creator,Creator field in metadata,Creator,Creador
+metadata-creator,Creator field in metadata,Author,Autor
 metadata-date,Date field in metadata,Date,Fecha
 metadata-description,Description field in metadata,Description,Descripción
 metadata-subject,Subjects field in metadata,Subjects,Sujetos
@@ -127,8 +128,11 @@ metadata-type,Type field in metadata,Type,Tipo
 metadata-format,Format field in metadata,Format,Formato
 metadata-rights,Rights field in metadata,Rights,Derechos
 metadata-rightsstatement,Rights Statement field in metadata,Rights Statement,Declaración de derechos
+metadata-illustrator,Illustrator field in metadata,Illustrator,Ilustrador
 map-books-title,Title on book map page,Books,Libros
 map-books-description,Description on book map page,The points on this map represent the locations mentioned in the books in this collection.,Los puntos de este mapa representan las ubicaciones mencionadas en los libros de esta colección.
 map-creators-title,Title on creators map page,Authors,Autores
 map-creators-description,Description on creators map page,The points on this map represent the locations where these books' authors live.,Los puntos en este mapa representan los lugares donde viven los autores de estos libros.
+map-illustrators-title,Title on creators map page,Illustrators,Ilustradores
+map-illustrators-description,Description on creators map page,The points on this map represent the locations where these books' illustrators live.,Los puntos en este mapa representan los lugares donde viven los ilustradores de estos libros.
 view-books,View books button on creator map page,View Books,Ver Libros
