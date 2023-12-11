@@ -2,6 +2,7 @@ field,translate_id_browse,lang,btn,hidden,translate_id_sort_name
 date,metadata-date,en;es,,,metadata-date
 creator,metadata-creator,en;es,,,
 illustrator,metadata-illustrator,en;es,
+translator,metadata-translator,en;es
 subject-en,,en,true
 subject-es,,es,true
 location_first_en,,en,true

@@ -116,6 +116,7 @@ date-sort,Sort by locations on browse sort dropdown,Date,Fecha
 date-created-display-name,Date created field name on item page,Date Created,Fecha de Creacion
 metadata-title,title field in metadata,Title,Título
 metadata-creator,Creator field in metadata,Author,Autor
+metadata-translator,Translator field in metadata,Translator,Traducir
 metadata-date,Date field in metadata,Date,Fecha
 metadata-description,Description field in metadata,Description,Descripción
 metadata-subject,Subjects field in metadata,Subjects,Sujetos
