@@ -2,6 +2,7 @@ field,translate_id_metadata,lang,browse_link,external_link
 title,metadata-title,en,
 title-es,metadata-title,es,
 creator,metadata-creator,en;es,
+illustrator,metadata-illustrator,en;es,
 date,metadata-date,en;es,
 description-en,metadata-description,en,
 description-es,metadata-description,es,
