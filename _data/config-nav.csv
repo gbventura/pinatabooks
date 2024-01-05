@@ -4,9 +4,9 @@ nav-browse,/browse.html
 nav-subjects,/subjects.html
 nav-locations,/locations.html
 nav-map,
-nav-map-books,/map.html,nav-map
-nav-map-creators,/creatormap.html,nav-map
-nav-map-illustrators,/illustratormap.html,nav-map
+map-books-title,/map.html,nav-map
+map-creators-title,/creatormap.html,nav-map
+map-illustrators-title,/illustratormap.html,nav-map
 nav-timeline,/timeline.html
 nav-data,/data.html
 nav-about,/about.html
