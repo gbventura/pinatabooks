@@ -9,14 +9,14 @@
     /* add item data */
     var items = { 
         {%- for item in items -%}{%- unless item.parentid %}
-        {{ item.objectid | jsonify }} : { {% unless fields contains 'title' %}"title": {% if page.lang == site.site_languages[0]['lang_id'] %}{{ item.title | jsonify }}{% else %}{% assign translated_title = 'title-' | append: page.lang %}{{ item[translated_title] | jsonify }}{% endif %}, {% endunless %}{% for f in fields %}{% if item[f.field] %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }}, {% endif %}{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}{% if item.vimeoid %} "vimeo": {{ item.vimeoid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %} }{% unless forloop.last %}, {% endunless %}
+        {{ item.objectid | jsonify }} : { {% unless fields contains 'title' %}"title": {% if page.lang == site.site_languages[0]['lang_id'] %}{{ item.title | jsonify }}{% else %}{% assign translated_title = 'title-' | append: page.lang %}{{ item[translated_title] | jsonify }}{% endif %}, {% endunless %}{% for f in fields %}{% if item[f.field] %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }}, {% endif %}{% endfor %}{% if item.isbn %} "isbn": {{ item.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}{% if item.vimeoid %} "vimeo": {{ item.vimeoid | jsonify }}, {% endif %}"format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %} }{% unless forloop.last %}, {% endunless %}
         {% endunless %}{% endfor %}
     };
     var children = { {%- assign parents = site.data[site.metadata] | map: 'parentid' | compact | uniq -%}{%- for p in parents -%}
         {{ p | jsonify }}: [
         {%- assign children = site.data[site.metadata] | where: 'parentid', p -%}
         {%- for c in children -%}
-        { "id": {{ c.objectid | jsonify }}, {% if c.title %}{% unless fields contains 'title' %}"title": {% if page.lang == site.site_languages[0]['lang_id'] %}{{ item.title | jsonify }}{% else %}{% assign translated_title = 'title-' | append: page.lang %}{{ item[translated_title] | jsonify }}{% endif %}, {% endunless %}{% endif %}{% for f in fields %}{% if c[f.field] %}{{ f.field | jsonify }}: {{ c[f.field] | jsonify }}, {% endif %}{% endfor %}{% if c.filename contains '/' %}"filename": "{{ c.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: c.filename | jsonify }}{% endif %}, {% if c.youtubeid %}"youtube": {{ c.youtubeid | jsonify }}, {% endif %}{% if c.vimeoid %} "vimeo": {{ c.vimeoid }}, {% endif %}"format": {{ c.format | jsonify }} }
+        { "id": {{ c.objectid | jsonify }}, {% if c.title %}{% unless fields contains 'title' %}"title": {% if page.lang == site.site_languages[0]['lang_id'] %}{{ item.title | jsonify }}{% else %}{% assign translated_title = 'title-' | append: page.lang %}{{ item[translated_title] | jsonify }}{% endif %}, {% endunless %}{% endif %}{% for f in fields %}{% if c[f.field] %}{{ f.field | jsonify }}: {{ c[f.field] | jsonify }}, {% endif %}{% endfor %}{% if c.filename contains '/' %}"filename": "{{ c.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: c.filename | jsonify }}{% endif %}, {% if c.isbn %} "isbn": {{ c.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %}{% if c.youtubeid %}"youtube": {{ c.youtubeid | jsonify }}, {% endif %}{% if c.vimeoid %} "vimeo": {{ c.vimeoid }}, {% endif %}"format": {{ c.format | jsonify }} }
         {%- unless forloop.last -%}, {%- endunless -%}{%- endfor -%}]{%- unless forloop.last -%}, {%- endunless -%}{%- endfor -%}
     };
 
@@ -137,6 +137,10 @@
                 {% endif %}
             }
             {%- endif -%}
+            if (item.isbn) {
+                var libraryButton = `<a href="${item.isbn}" class="btn btn-outline-primary" target="_blank" rel="noopener">{% include translate.html id="metadata-find" default="Find at Your Library" %}</a>`;
+                itemLink += libraryButton;
+            }
             itemLink += item.format.includes('compound_object') || item.format.includes('multiple') ? compoundDownload : itemDownload;
             itemLink += '</div>'
         };

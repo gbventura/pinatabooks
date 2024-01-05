@@ -24,24 +24,24 @@
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_first | strip }},{{ item.latitude_first | strip }}] }, "properties":
     { "title": {{ item.title | jsonify }}, "location": {{ item.location_first_en | jsonify }},
     {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
-    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %},{% if item.isbn %} "isbn": {{ item.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %} "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
     {% if item.latitude_second %}
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_second | strip }},{{ item.latitude_second | strip }}] }, "properties":
     { "title": {{ item.title | jsonify }}, "location": {{ item.location_second_en | jsonify }},
     {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
-    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %},{% if item.isbn %} "isbn": {{ item.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %} "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
     {% endif %}
     {% if item.latitude_third %}
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_third | strip }},{{ item.latitude_third | strip }}] }, "properties":
     { "title": {{ item.title | jsonify }}, "location": {{ item.location_third_en | jsonify }}, 
     {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
-    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %},{% if item.isbn %} "isbn": {{ item.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %} "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
     {% endif %}
     {% if item.latitude_fourth %}
     { "type":"Feature", "geometry":{ "type":"Point", "coordinates":[{{ item.longitude_fourth | strip }},{{ item.latitude_fourth | strip }}] }, "properties":
     { "title": {{ item.title | jsonify }}, "location": {{ item.location_fourth_en | jsonify }},
     {% for f in fields %}{{ f.field | jsonify }}: {{ item[f.field] | jsonify }},{% endfor %}{% if item.youtubeid %} "youtube": {{ item.youtubeid | jsonify }}, {% endif %}
-    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %}, "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
+    "format": {{ item.format | jsonify }}, {% if  item.filename contains '/' %}"filename": "{{ item.filename }}" {% else %}"filename":{{ '/objects/' | relative_url | append: item.filename | jsonify }}{% endif %},{% if item.isbn %} "isbn": {{ item.isbn | prepend: 'http://www.worldcat.org/isbn/' | relative_url | jsonify }}, {% endif %} "link": "{% if item.parentid %}{{ item.parentid }}#{{ item.objectid }}{% else %}{{ item.objectid }}{% endif %}", "id": {{ item.objectid | jsonify }} } }{% unless forloop.last %}, {% endunless %}
     {% endif %}
     {% endfor %}
     ]};
@@ -161,7 +161,21 @@
         }
         {% endif %}{% endfor %}
         /* add object link button to popup */
-        popupTemplate += '</p><div class="text-center"><a class="btn btn-light" href="' + itemHref + '" >{% include translate.html id="home-view-item" default="View Item" %}</a></div>';
+        popupTemplate += '</p><div class="text-center"><a class="btn btn-light m-1" href="' + itemHref + '" >{% include translate.html id="home-view-item" default="View Item" %}</a>';
+        if (feature.properties.isbn) {
+            popupTemplate += `<br>
+            <a href="${feature.properties.isbn}" class="btn btn-light m-1" target="_blank" rel="noopener">                                    
+                <svg 
+                    class="bi icon-sprite text-body" 
+                    fill="currentColor" 
+                    aria-hidden="true">
+                    <use xlink:href="{{ '/assets/lib/cb-icons.svg' | relative_url }}#bank"/>
+                </svg> 
+                {% include translate.html id="metadata-find" default="Find at Your Library" %}
+            </a></div>`;
+        } else {
+            popupTemplate += '</div>'
+        };
         /* add object popup to map layer */
         layer.bindPopup(popupTemplate);
     }
