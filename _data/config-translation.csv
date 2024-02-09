@@ -138,3 +138,12 @@ map-illustrators-title,Title on creators map page,Illustrators,Ilustradores
 map-illustrators-description,Description on creators map page,The points on this map represent the locations where these books' illustrators live.,Los puntos en este mapa representan los lugares donde viven los ilustradores de estos libros.
 view-books,View books button on creator map page,View Books,Ver Libros
 metadata-find,Find at your library button for items,Find at Your Library,Encuentra en tu biblioteca
+metadata-isbn,ISBN field in metadata,ISBN,ISBN
+metadata-lexile-level-en,Lexile Level field in metadata,Lexile Level English,Nivel Lexile Inglés
+metadata-lexile-level-es,Lexile Level field in metadata,Lexile Level Spanish,Nivel Lexile Española
+metadata-atos-level-en,Atos Level field in metadata,Atos Level English,Nivel Atos Inglés
+metadata-atos-level-es,Atos Level field in metadata,Atos Level Spanish,Nivel Atos Española
+metadata-ar-id,ar_id field in metadata,AR ID,AR ID
+metadata-age-group,age group field in metadata,Age Group,Grupo de Edad
+metadata-tags,Tags field in metadata,Tags,Etiquetas
+metadata-language,Language field in metadata,Language,Idioma
