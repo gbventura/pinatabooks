@@ -5,5 +5,8 @@ illustrator,metadata-illustrator,en;es,
 translator,metadata-translator,en;es
 subject-en,,en,true
 subject-es,,es,true
-location_first_en,,en,true
-location_first_es,,es,true
+tags-en,,en,true
+tags-es,,es,true
+locations_en,metadata-location,en,true
+locations_es,metadata-location,es,true
+language,metadata-language,en;es,true
