@@ -89,7 +89,7 @@
                 var browseLinks = "";
                 for (var i = 0, len = topics.length; i < len; i++) {
                     if (topics[i] != "") {
-                        browseLinks += '<a class="btn btn-link" href={% if page.lang != site.site_languages[0]["lang_id"] %}{{ "/browse.html" | prepend: page.lang | prepend: "/" | relative_url }}{% else %}{{ "/browse.html" | relative_url }}{% endif %}#' + encodeURIComponent(topics[i].trim()) + '">' + topics[i].trim() + '</a> ';
+                        browseLinks += '<a class="btn btn-link" href="{% if page.lang != site.site_languages[0]["lang_id"] %}{{ "/browse.html" | prepend: page.lang | prepend: "/" | relative_url }}{% else %}{{ "/browse.html" | relative_url }}{% endif %}#' + encodeURIComponent(topics[i].trim()) + '">' + topics[i].trim() + '</a> ';
                     }
                 }
                 fields += '<dt class="field">{{ site.data.config-translation | where: "translate_id", f.translate_id_metadata | map: page.lang | first }}:</dt> <dd class="field-value">' + browseLinks + '</dd>';
